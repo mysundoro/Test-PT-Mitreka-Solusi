@@ -37,7 +37,8 @@
 4. php artisan migrate
 
 ## Finalisasi
-1. php artisan 
+1. php artisan server
+2. npm run dev
 
 ## Instalasi untuk pihak PT Mitreka Solusi
 1. buat .env baru berdasarkan .env.example dan ubah pengaturan database ke pgsql
