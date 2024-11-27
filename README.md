@@ -37,7 +37,8 @@
 4. php artisan migrate
 
 ## Finalisasi
-1. php artisan 
+1. php artisan server
+2. npm run dev
 
 ## Instalasi untuk pihak DOKA DIGITAL
 1. buat .env baru berdasarkan .env.example dan ubah pengaturan database
@@ -53,3 +54,10 @@
 ## Default login
     email : superadmin@demo.com
     password : password
+
+## NOTE
+Untuk bahasa saya tidak sempat untuk menyertakan seedernya karena keterbatasan waktu.
+Namun anda dapat menambahkan bahasa di dalam menu setting/language -> Add.
+Jika ingin menambahkan bahasa baru? klik tombol Language Code di dalam menu Language.
+
+Notifikasi hanya bisa di gunakan ketika mencreate user baru di dalam menu setting/users.
