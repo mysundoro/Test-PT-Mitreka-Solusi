@@ -35,8 +35,6 @@ class PermissionSeeder extends Seeder
             ['name' => 'Create Permissions', 'id_permissions' => 1],
             ['name' => 'Edit Permissions', 'id_permissions' => 1],
             ['name' => 'Delete Permissions', 'id_permissions' => 1],
-
-            ['name' => 'List Audit', 'id_permissions' => null],
         ];
 
         foreach ($permissions as $permission) {

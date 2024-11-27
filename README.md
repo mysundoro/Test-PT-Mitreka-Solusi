@@ -39,11 +39,11 @@
 ## Finalisasi
 1. php artisan 
 
-## Instalasi untuk pihak PT Mitreka Solusi
-1. buat .env baru berdasarkan .env.example dan ubah pengaturan database ke pgsql
+## Instalasi untuk pihak DOKA DIGITAL
+1. buat .env baru berdasarkan .env.example dan ubah pengaturan database
 2. composer install
 3. npm install
-4. php artisan migrate
+4. php artisan migrate (Jika error (Bug spatie package), drop semua table di database (misal tes_db). Kemudian run php artisan migrate kembali)
 5. php artisan db:seed
 6. php artisan storage:link
 7. npm run dev (development)
@@ -53,12 +53,3 @@
 ## Default login
     email : superadmin@demo.com
     password : password
-
-## NOTE
-Untuk bahasa saya tidak sempat untuk menyertakan seedernya karena keterbatasan waktu.
-Namun anda dapat menambahkan bahasa di dalam menu setting/language -> Add.
-Jika ingin menambahkan bahasa baru? klik tombol Language Code di dalam menu Language.
-
-Untuk Audit Trail, hanya table users, menu, language, configuration, dan language_code saja yang sudah saya atur.
-
-Notifikasi hanya bisa di gunakan ketika mencreate user baru di dalam menu setting/users.

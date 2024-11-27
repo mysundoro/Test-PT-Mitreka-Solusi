@@ -39,9 +39,5 @@ class MenuSeeder extends Seeder
         Menu::create([
             'id' => 8, 'name' => 'Menu', 'url' => 'menu.index', 'parent_id' => 2, 'category' => 'backend', 'id_permissions' => '10'
         ]);
-
-        Menu::create([
-            'id' => 9, 'name' => 'Audit', 'icon' => 'mdi-math-log', 'url' => 'audit.index', 'category' => 'backend'
-        ]);
     }
 }

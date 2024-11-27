@@ -45,9 +45,5 @@ Route::middleware([
             Route::get('/permissions/data', [App\Http\Controllers\Backend\Setting\PermissionController::class, 'data'])->name('permissions.data');
             Route::resource('permissions', App\Http\Controllers\Backend\Setting\PermissionController::class);
         });
-
-        // Audit Module
-        Route::get('/audit/data', [App\Http\Controllers\Backend\AuditController::class, 'data'])->name('audit.data');
-        Route::resource('audit', App\Http\Controllers\Backend\AuditController::class);
     });
 });

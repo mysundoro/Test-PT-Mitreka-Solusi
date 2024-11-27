@@ -17,7 +17,7 @@ class ConfigSeeder extends Seeder
             ['key' => 'logo_system', 'value' => '', 'description' => null],
             ['key' => 'login_logo', 'value' => '', 'description' => null],
             ['key' => 'favicon', 'value' => '', 'description' => null],
-            ['key' => 'application_name', 'value' => 'Tes Modul', 'description' => null],
+            ['key' => 'application_name', 'value' => 'BlockChain', 'description' => null],
             ['key' => 'timezone', 'value' => 'Asia/Jakarta', 'description' => null],
         ];
 
