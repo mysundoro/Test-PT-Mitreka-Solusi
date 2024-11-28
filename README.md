@@ -65,3 +65,4 @@ Notifikasi hanya bisa di gunakan ketika mencreate user baru di dalam menu settin
 
 Update v1.1
 1. php artisan migrate
+2. npm run build (for production)
