@@ -45,5 +45,7 @@ Route::middleware([
             Route::get('/permissions/data', [App\Http\Controllers\Backend\Setting\PermissionController::class, 'data'])->name('permissions.data');
             Route::resource('permissions', App\Http\Controllers\Backend\Setting\PermissionController::class);
         });
+
+        Route::get('/getRealtimePrice/{symbol}', [App\Http\Controllers\Backend\RealtimePriceController::class, 'getRealtimePrice'])->name('realtime.getRealtimePrice');
     });
 });
