@@ -61,3 +61,7 @@ Namun anda dapat menambahkan bahasa di dalam menu setting/language -> Add.
 Jika ingin menambahkan bahasa baru? klik tombol Language Code di dalam menu Language.
 
 Notifikasi hanya bisa di gunakan ketika mencreate user baru di dalam menu setting/users.
+
+
+Update v1.1
+1. php artisan migrate
