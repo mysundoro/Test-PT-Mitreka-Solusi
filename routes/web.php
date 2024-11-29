@@ -47,5 +47,20 @@ Route::middleware([
         });
 
         Route::get('/getRealtimePrice/{symbol}', [App\Http\Controllers\Backend\RealtimePriceController::class, 'getRealtimePrice'])->name('realtime.getRealtimePrice');
+        
+        // Deposit Route
+        Route::post('/transaction/deposit', [App\Http\Controllers\Backend\TransactionController::class, 'deposit'])->name('transaction.deposit');
+
+        // Withdraw Route
+        Route::post('/transaction/withdraw', [App\Http\Controllers\Backend\TransactionController::class, 'withdraw'])->name('transaction.withdraw');
+
+        // Balance Route (to fetch the current user's balance)
+        Route::get('/user/balance', function () {
+            return response()->json(['balance' => auth()->user()->balance]);
+        })->name('user.balance');
+
+        // Buy Stock
+        Route::get('/get-stock', [App\Http\Controllers\Backend\StockPurchaseController::class, 'getStock'])->name('stock.get');
+        Route::post('/buy-stock', [App\Http\Controllers\Backend\StockPurchaseController::class, 'buyStock'])->name('stock.buy');
     });
 });

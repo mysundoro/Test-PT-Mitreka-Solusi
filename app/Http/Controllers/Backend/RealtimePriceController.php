@@ -6,20 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use App\Models\Stock;
+use App\Models\{Stock};
 
 class RealtimePriceController extends Controller
 {
-    public function getCryptoPrices()
-    {
-        $response = Http::get('https://api.coingecko.com/api/v3/simple/price', [
-            'ids' => 'ethereum',
-            'vs_currencies' => 'usd',
-        ]);
-
-        return $response->json();
-    }
-
     public function getRealtimePrice($symbol)
     {
         $apiKey = 'ct3gv11r01qkff71874gct3gv11r01qkff718750';
@@ -43,7 +33,7 @@ class RealtimePriceController extends Controller
             }
 
             // Update or create stock entry in the database
-            Stock::updateOrCreate(
+            $stock = Stock::updateOrCreate(
                 ['symbol' => $symbol],
                 [
                     'current_price' => $response->json()['c'],
@@ -54,10 +44,10 @@ class RealtimePriceController extends Controller
             );
 
             return response()->json([
-                'price' => $response->json()['c'],
-                'change' => $response->json()['d'],
-                'percentChange' => $response->json()['dp'],
-                'previousClose' => $response->json()['pc'],
+                'price' => $stock->current_price,
+                'change' => $stock->change,
+                'percentChange' => $stock->percent_change,
+                'previousClose' => $stock->previous_close,
                 'companyName' => $companyName,
             ]);
         }
