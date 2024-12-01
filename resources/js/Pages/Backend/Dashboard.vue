@@ -227,6 +227,56 @@ watch(symbol, fetchPrice);
                 </v-col>
 
                 <v-col cols="4">
+                    <v-card class="pa-4">
+                        <v-card-text>
+                            <v-row>
+                                <!-- Box 1: Crypto Asset -->
+                                <v-col cols="6">
+                                    <v-card class="pa-3 text-center">
+                                        <v-icon color="blue" class="mb-2" size="36">
+                                            mdi-bitcoin
+                                        </v-icon>
+                                        <div class="text-h6">{{ $page.props.auth.user.balance }}</div>
+                                        <div class="text-subtitle-2">Crypto Asset</div>
+                                    </v-card>
+                                </v-col>
+
+                                <!-- Box 2: Stock Asset -->
+                                <v-col cols="6">
+                                    <v-card class="pa-3 text-center">
+                                        <v-icon color="green" class="mb-2" size="36">
+                                            mdi-chart-bar
+                                        </v-icon>
+                                        <div class="text-h6">$15,230</div>
+                                        <div class="text-subtitle-2">Stock Asset</div>
+                                    </v-card>
+                                </v-col>
+
+                                <!-- Box 3: Total Transaction -->
+                                <v-col cols="6">
+                                    <v-card class="pa-3 text-center">
+                                        <v-icon color="orange" class="mb-2" size="36">
+                                            mdi-swap-horizontal
+                                        </v-icon>
+                                        <div class="text-h6">$120</div>
+                                        <div class="text-subtitle-2">Total Transaction</div>
+                                    </v-card>
+                                </v-col>
+
+                                <!-- Box 4: Total Referral -->
+                                <v-col cols="6">
+                                    <v-card class="pa-3 text-center">
+                                        <v-icon color="purple" class="mb-2" size="36">
+                                            mdi-account-multiple
+                                        </v-icon>
+                                        <div class="text-h6">0</div>
+                                        <div class="text-subtitle-2">Total Referral</div>
+                                    </v-card>
+                                </v-col>
+                            </v-row>
+                        </v-card-text>
+                    </v-card>
+
                     <v-card class="pa-4 mt-5">
                         <v-card-title class="text-h6">Buy Stock {{ companyName }}</v-card-title>
                         <v-card-text>
