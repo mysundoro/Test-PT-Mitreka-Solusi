@@ -45,8 +45,6 @@ watch(() => props.drawer, (newVal) => {
 
 <template>
     <v-navigation-drawer
-        color="white"
-        theme="dark"
         permanent
         v-model="drawer"
         elevation="10"

@@ -1,6 +1,7 @@
 <script setup>
 import { router, Link } from '@inertiajs/vue3';
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
+import { useTheme } from 'vuetify';
 import Language from '@/Components/Language.vue';
 
 const notifications = ref([]);
@@ -75,10 +76,30 @@ const toggleFullScreen = () => {
 
     isFullScreen.value = !isFullScreen.value;
 };
+
+// Dark & Light Switcher with Local Storage
+const theme = useTheme();
+
+// Initialize theme based on local storage or default
+onMounted(() => {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+        theme.global.name.value = storedTheme;
+    }
+});
+
+// Computed property to determine if the current theme is dark
+const isDarkTheme = computed(() => theme.global.current.value.dark);
+
+const toggleTheme = () => {
+    const currentTheme = theme.global.current.value.dark ? 'light' : 'dark';
+    theme.global.name.value = currentTheme;
+    localStorage.setItem('theme', currentTheme); // Save theme to local storage
+};
 </script>
 
 <template>
-    <v-app-bar color="white" dark>
+    <v-app-bar>
         <v-app-bar-nav-icon @click="$emit('toggle-drawer')"></v-app-bar-nav-icon>
         <Link :href="route('dashboard')" class="d-flex align-items-center">
             <template v-if="$page.props.configuration.logo_system.value">
@@ -106,6 +127,11 @@ const toggleFullScreen = () => {
             <v-icon v-else>mdi-fullscreen-exit</v-icon>
         </v-btn>
 
+        <!-- Dark / Light Switcher -->
+        <v-btn icon @click="toggleTheme">
+            <v-icon>{{ isDarkTheme ? 'mdi-weather-night' : 'mdi-weather-sunny' }}</v-icon>
+        </v-btn>
+
         <!-- Notification -->
         <v-menu offset-y>
             <template v-slot:activator="{ props }">
@@ -122,7 +148,7 @@ const toggleFullScreen = () => {
                 class="d-flex flex-column"
                 style="width: 400px; height: 500px;"
             >
-                <v-card-title class="bg-primary text-white d-flex justify-space-between align-center">
+                <v-card-title class="bg-primaryd-flex justify-space-between align-center">
                     <span>{{ $t('Notification') }}</span>
                     {{ unreadCount }}
                 </v-card-title>

@@ -46,21 +46,11 @@ Route::middleware([
             Route::resource('permissions', App\Http\Controllers\Backend\Setting\PermissionController::class);
         });
 
-        Route::get('/getRealtimePrice/{symbol}', [App\Http\Controllers\Backend\RealtimePriceController::class, 'getRealtimePrice'])->name('realtime.getRealtimePrice');
-        
-        // Deposit Route
-        Route::post('/transaction/deposit', [App\Http\Controllers\Backend\TransactionController::class, 'deposit'])->name('transaction.deposit');
+        // Realtime Price
+        Route::get('/Realtime-Price/{symbol}', [App\Http\Controllers\Backend\StockController::class, 'RealtimePrice'])->name('stock.RealtimePrice');
 
-        // Withdraw Route
-        Route::post('/transaction/withdraw', [App\Http\Controllers\Backend\TransactionController::class, 'withdraw'])->name('transaction.withdraw');
-
-        // Balance Route (to fetch the current user's balance)
-        Route::get('/user/balance', function () {
-            return response()->json(['balance' => auth()->user()->balance]);
-        })->name('user.balance');
-
-        // Buy Stock
-        Route::get('/get-stock', [App\Http\Controllers\Backend\StockPurchaseController::class, 'getStock'])->name('stock.get');
-        Route::post('/buy-stock', [App\Http\Controllers\Backend\StockPurchaseController::class, 'buyStock'])->name('stock.buy');
+        // Stock Purchase
+        Route::post('/Buy-Stock', [App\Http\Controllers\Backend\StockPurchaseController::class, 'buyStock'])->name('stock_purchase.buyStock');
+        Route::post('/Get-Transaction', [App\Http\Controllers\Backend\StockPurchaseController::class, 'getUserPurchases'])->name('stock_purchase.getUserPurchases');
     });
 });
